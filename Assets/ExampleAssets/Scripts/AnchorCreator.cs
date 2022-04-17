@@ -62,7 +62,7 @@ public class AnchorCreator : MonoBehaviour
             var hitTrackableId = s_Hits[0].trackableId;
             var hitPlane = m_PlaneManager.GetPlane(hitTrackableId);
 
-            
+
             if (isPlaced == false)
                 isPlaced = true;
             else
@@ -71,7 +71,7 @@ public class AnchorCreator : MonoBehaviour
                 RemoveAllAnchors();
                 Destroy(placedMatrix);
             }
-               
+
             // This attaches an anchor to the area on the plane corresponding to the raycast hit,
             // and afterwards instantiates an instance of your chosen prefab at that point.
             // This prefab instance is parented to the anchor to make sure the position of the prefab is consistent
