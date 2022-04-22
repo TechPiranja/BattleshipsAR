@@ -54,7 +54,7 @@ public class AnchorCreator : MonoBehaviour
             var hitPlane = planeManager.GetPlane(hitTrackableId);
 
             if (placedBoard)
-			{
+            {
                 Destroy(placedBoard);
                 Destroy(anchorPoint);
 
