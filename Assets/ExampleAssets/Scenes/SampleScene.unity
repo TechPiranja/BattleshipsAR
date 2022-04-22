@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788587e994f1943f3856c1c332db429b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AnchorPrefab: {fileID: 8212050289519478037, guid: 5e17f88d522344a49b8cb2f7e108e47b,
+  anchorPrefab: {fileID: 6617154049015032324, guid: 27d77934bd367124aa57016e95bc36ae,
     type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -430,7 +430,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7e-45, z: 9.1835e-41, w: 0}
+  m_BoundingSphereOverride: {x: 5.3e-44, y: 9.715e-42, z: 6e-44, w: 1e-45}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
