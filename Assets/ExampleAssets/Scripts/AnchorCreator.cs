@@ -16,10 +16,7 @@ public class AnchorCreator : MonoBehaviour
 {
     public GameObject anchorPrefab;
 
-    private static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
-
-    private GameObject placedBoard = null;
-
+    private GameObject placedBoard;
     private ARAnchor anchorPoint;
     private ARRaycastManager raycastManager;
     private ARAnchorManager anchorManager;
@@ -46,12 +43,14 @@ public class AnchorCreator : MonoBehaviour
         if (touch.phase != TouchPhase.Began)
             return;
 
-        if (raycastManager.Raycast(touch.position, s_Hits, TrackableType.PlaneWithinPolygon))
+        List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+        if (raycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
         {
             // Raycast hits are sorted by distance, so the first one
             // will be the closest hit.
-            var hitPose = s_Hits[0].pose;
-            var hitTrackableId = s_Hits[0].trackableId;
+            var hitPose = hits[0].pose;
+            var hitTrackableId = hits[0].trackableId;
             var hitPlane = planeManager.GetPlane(hitTrackableId);
 
             if (placedBoard)
