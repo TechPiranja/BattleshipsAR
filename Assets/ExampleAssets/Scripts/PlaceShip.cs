@@ -1,31 +1,23 @@
-﻿using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-//
-// This script allows us to create anchors with
-// a prefab attached in order to visbly discern where the anchors are created.
-// Anchors are a particular point in space that you are asking your device to track.
-//
-
 [RequireComponent(typeof(ARAnchorManager))]
 [RequireComponent(typeof(ARRaycastManager))]
 [RequireComponent(typeof(ARPlaneManager))]
-public class AnchorCreator : MonoBehaviour
+public class PlaceShip : MonoBehaviour
 {
-    public GameObject anchorPrefab;
+    public GameObject shipAnchor;
 
-    private GameObject placedBoard;
+    private GameObject placedShip;
     private ARAnchor anchorPoint;
     private ARRaycastManager raycastManager;
     private ARAnchorManager anchorManager;
     private ARPlaneManager planeManager;
+    private Vector3 rotationVector = new Vector3(0, 90, 0);
 
-    // On Awake(), we obtains a reference to all the required components.
-    // The ARRaycastManager allows us to perform raycasts so that we know where to place an anchor.
-    // The ARPlaneManager detects surfaces we can place our objects on.
-    // The ARAnchorManager handles the processing of all anchors and updates their position and rotation.
     void Awake()
     {
         raycastManager = GetComponent<ARRaycastManager>();
@@ -45,6 +37,7 @@ public class AnchorCreator : MonoBehaviour
 
         if (Input.touchCount == 1)
         {
+
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
             if (raycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
@@ -55,12 +48,12 @@ public class AnchorCreator : MonoBehaviour
                 var hitTrackableId = hits[0].trackableId;
                 var hitPlane = planeManager.GetPlane(hitTrackableId);
 
-                if (placedBoard)
+                if (placedShip)
                 {
-                    Destroy(placedBoard);
+                    Destroy(placedShip);
                     Destroy(anchorPoint);
 
-                    placedBoard = null;
+                    placedShip = null;
                 }
 
                 // This attaches an anchor to the area on the plane corresponding to the raycast hit,
@@ -68,9 +61,14 @@ public class AnchorCreator : MonoBehaviour
                 // This prefab instance is parented to the anchor to make sure the position of the prefab is consistent
                 // with the anchor, since an anchor attached to an ARPlane will be updated automatically by the ARAnchorManager as the ARPlane's exact position is refined.
                 var anchor = anchorManager.AttachAnchor(hitPlane, hitPose);
-                placedBoard = Instantiate(anchorPrefab, anchor.transform);
+                placedShip = Instantiate(shipAnchor, anchor.transform);
                 anchorPoint = anchor;
             }
+        }
+        else if(Input.touchCount == 2 && placedShip)
+        {
+            placedShip.transform.Rotate(rotationVector);
+            return;
         }
     }
 }
