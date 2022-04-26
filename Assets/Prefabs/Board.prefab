@@ -48,3 +48,5 @@ MonoBehaviour:
   tilesDistance: 0.06
   tilePrefab: {fileID: 3193832351985088247, guid: ff7289da6acc2064699f25d8bb780485,
     type: 3}
+  shipPrefab: {fileID: 2271744475650899790, guid: 0f9c53440f55e304d9e0ab83e76f9b94,
+    type: 3}

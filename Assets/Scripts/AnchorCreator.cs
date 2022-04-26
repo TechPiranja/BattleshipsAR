@@ -57,6 +57,8 @@ public class AnchorCreator : MonoBehaviour
 
                 if (placedBoard)
                 {
+                    return;
+
                     Destroy(placedBoard);
                     Destroy(anchorPoint);
 
