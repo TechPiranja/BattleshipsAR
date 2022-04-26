@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: techpiranja
   productName: BattleshipsAR
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -178,6 +178,18 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 4800000, guid: e7c77f6eaab324a819efdc13b8125a39, type: 3}
+  - {fileID: 0}
+  - {fileID: -906990648198499217, guid: 58f40b12bbc864f3c96c6505a9a1e1e3, type: 2}
+  - {fileID: 11400000, guid: 1eb95d77acb39444e8cf44313496a874, type: 2}
+  - {fileID: 1847388283625471019, guid: 6bb381a8ba31f114d9724357633b4625, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -770,6 +782,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
+    : UNITY_XR_ARKIT_LOADER_ENABLED
     iPhone: UNITY_XR_ARKIT_LOADER_ENABLED
   additionalCompilerArguments: {}
   platformArchitecture:
@@ -861,11 +874,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 2
-  cloudProjectId: 
+  cloudProjectId: dfc973df-cb5a-4f70-b13b-00db47a2e659
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: default
+  organizationId: techpiranja
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
